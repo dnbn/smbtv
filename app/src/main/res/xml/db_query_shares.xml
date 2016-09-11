@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<queries>
+    <query name="getAll_shares">
+        SELECT id, path, name, access FROM shares
+    </query>
+    <query name="insert_share">
+        INSERT INTO shares(path, name, access) values ('${path}', '${name}', ${access})
+    </query>
+    <query name="delete_share">
+        DELETE FROM shares WHERE id = ${id}
+    </query>
+    <query name="getById_share">
+        SELECT id, path, name, access FROM shares WHERE id = ${id}
+    </query>
+    <query name="update_share">
+        UPDATE  shares
+        SET     path    = '${path}',
+                name    = '${name}',
+                access  = ${access}
+        WHERE id = ${id}
+    </query>
+</queries>

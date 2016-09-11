@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<queries>
+    <query name="drop_config">
+        DROP TABLE IF EXISTS config;
+    </query>
+    <query name="drop_shares">
+        DROP TABLE IF EXISTS shares;
+    </query>
+    <query name="create_config">
+        CREATE TABLE config (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            hostname TEXT NOT NULL,
+            sharename TEXT NOT NULL,
+            domain TEXT NOT NULL,
+            serverport INTEGER NOT NULL,
+            sessionport INTEGER NOT NULL,
+            datagramport INTEGER NOT NULL,
+            smbport INTEGER NOT NULL
+        );
+    </query>
+    <query name="create_shares">
+        CREATE TABLE shares (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            path TEXT NOT NULL,
+            name TEXT NOT NULL,
+            access INTEGER NOT NULL
+        );
+    </query>
+</queries>
