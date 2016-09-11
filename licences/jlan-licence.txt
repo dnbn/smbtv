@@ -1,0 +1,70 @@
+LONDON, Oct. 16 /PRNewswire/ -- Alfresco Software, Inc., the leader in
+ open source enterprise content management (ECM), today announced that it is
+ now offering Alfresco JLAN, formerly known as the Alfresco Intelligent File
+ System, under the GNU Public License (GPL), the world's most popular open
+ source software license.
+     GPL is the most widely used free software license worldwide; almost
+ three quarters of all free software and open source programs are
+ distributed under this license. Alfresco adopted GPL licensing for the rest
+ of its open source enterprise content management software earlier this
+ year.
+     Alfresco JLAN is a unique implementation of an embedded virtual file
+ system that offers the only Java client and server implementation of
+ Microsoft Window's CIFS (Common Internet File System) protocol, allowing
+ content, system administration information, and rows in a database to
+ appear as a shared drive. The shared drive is the de-facto document
+ management interface for the vast majority of computer users today.
+     Alfresco JLAN offers the following features and functionality:
+      *  Only Pure Java client and server implementation -- CIFS, NFS and FTP
+      *  High Performance -- Similar to the native file system
+      *  Enterprise Authentication -- NTLM, NTLMSSP, SPNEGO, Kerberos/AD
+      *  Real-Time Access -- No copy-to-local disk or conflict resolution
+         issues
+      *  Offline Access -- Integration to Microsoft(R) briefcase
+     Last spring, Alfresco offered JLAN, which was previously incorporated
+ within Alfresco Enterprise Content Management Server, as a standalone
+ embeddable option for OEMs. The availability of Alfresco JLAN as an OEM
+ license enables partners to add JLAN features and functionality to their
+ products rapidly and at much lower cost. Alfresco JLAN customers include
+ Avaki EII (owned by Sybase), Caringo, EMC Documentum and Veritas (owned by
+ Symantec). These companies are using Alfresco JLAN for shared drive
+ interfaces to content management systems, databases, or content enabling
+ applications such as customer relationship management.
+     "I am very excited about this open source contribution," said Chris
+ Hertel, Samba Team member and co-founder the jCIFS project. "Every open
+ source CIFS implementation adds to the community's understanding, and to
+ the utility of the protocol itself."
+     "Alfresco JLAN has allowed us to expand our OEM momentum with a simple
+ interface and low cost open source solution, which can be embedded easily
+ into various systems," said John Newton, CTO, Alfresco Software. "Today,
+ more than 50 customers, including some of the largest software companies in
+ the world, have already incorporated Alfresco JLAN into their products."
+     Alfresco is the leading open source alternative for Enterprise Content
+ Management and the first embeddable ECM system. It is being used by leading
+ original equipment manufacturers, independent software vendors (ISVs) and
+ value added resellers (VARs). Alfresco has been downloaded more than
+ 700,000 times, has 25,000 live sites and 300 customers, predominantly from
+ the Global 2000. An embedded version of Alfresco has been available since
+ October 2005.
+     Alfresco JLAN is available for download at
+ http://sourceforge.net/project/showfiles.php?group_id=143373&package_id=248550
+     Alfresco OEM information is available at
+ http://www.alfresco.com/partners/solution/
+     About Alfresco Software, Inc.
+     Alfresco Software, Inc. is the first and leading open source
+ alternative for enterprise content management. It is the first company to
+ bring the power of open source to the enterprise content management market,
+ enabling unprecedented scale and a much lower total cost of ownership than
+ proprietary systems. Founded by a team of content management veterans that
+ includes the co-founder of Documentum, John Newton, and former COO of
+ Business Objects, John Powell, Alfresco is based in London. For more
+ information, go to www.alfresco.com.
+       Media Contacts:
+       Alfresco Software, Inc.
+       Patricia Colby, Page One PR
+       415-875-7494
+       patricia@pageonepr.com
+
+
+
+SOURCE Alfresco Software, Inc.
