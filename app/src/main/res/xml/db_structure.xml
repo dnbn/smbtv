@@ -3,6 +3,12 @@
     <query name="drop_config">
         DROP TABLE IF EXISTS config;
     </query>
+    <query name="drop_user_share">
+        DROP TABLE IF EXISTS user_share;
+    </query>
+    <query name="drop_users">
+        DROP TABLE IF EXISTS users;
+    </query>
     <query name="drop_shares">
         DROP TABLE IF EXISTS shares;
     </query>
@@ -24,6 +30,21 @@
             path TEXT NOT NULL,
             name TEXT NOT NULL,
             access INTEGER NOT NULL
+        );
+    </query>
+    <query name="create_users">
+        CREATE TABLE users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            login TEXT NOT NULL,
+            password TEXT NOT NULL
+        );
+    </query>
+    <query name="create_user_share">
+        CREATE TABLE user_share (
+            id_user INTEGER NOT NULL,
+            id_share INTEGER NOT NULL,
+            FOREIGN KEY(id_user) REFERENCES users(id),
+            FOREIGN KEY(id_share) REFERENCES shares(id)
         );
     </query>
 </queries>

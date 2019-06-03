@@ -6,5 +6,7 @@ public enum MenuAction {
     StartServer,
     StopServer,
     AddShare,
-    Share
+    AddUser,
+    Share,
+    User
 }

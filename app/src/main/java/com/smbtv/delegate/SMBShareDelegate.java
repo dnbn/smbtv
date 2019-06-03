@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.smbtv.delegate.base.SMBShareDAO;
 import com.smbtv.model.SMBShare;
+import com.smbtv.model.SMBUser;
 
 import java.util.List;
 
@@ -40,5 +41,10 @@ public class SMBShareDelegate {
     public void update(SMBShare share) {
 
         mDao.update(share);
+    }
+
+    public List<SMBUser> findUsers(SMBShare share) {
+
+        return mDao.findUsers(share);
     }
 }

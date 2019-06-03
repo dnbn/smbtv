@@ -2,7 +2,7 @@
 
     <!-- Main -->
     <string name="app_name">smbtv</string>
-    <string name="browse_title"><![CDATA[SMBTV]]></string>
+    <string name="browse_title" translatable="false"><![CDATA[SMBTV]]></string>
     <string name="share">Partages</string>
     <string name="server">Serveur</string>
     <string name="start">Démarrer</string>
@@ -39,4 +39,19 @@
     <string name="share_title">Partage</string>
     <string name="share_name">Nom</string>
     <string name="share_remove">Supprimer</string>
+    <string name="share_public">Public</string>
+    <string name="share_user">Utilisateur</string>
+
+    <!-- Users -->
+    <string name="users_title">Users</string>
+    <string name="users_create_desc">Create new user</string>
+    <string name="users_edit_desc">User edition</string>
+    <string name="user_shares_count">share(s)</string>
+    <string name="users_login">Login</string>
+    <string name="users_password">Password</string>
+    <string name="users_mandatory_fields">Both fields are mandatory</string>
+    <string name="users_exists">User already exists</string>
+    <string name="users_desc">Create new user</string>
+    <string name="users_delete">Delete</string>
+
 </resources>

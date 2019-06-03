@@ -8,9 +8,11 @@ import android.support.v17.leanback.widget.ListRow;
 import android.util.Log;
 
 import com.smbtv.R;
-import com.smbtv.delegate.SMBShareDelegate;
-import com.smbtv.model.SMBShare;
 import com.smbtv.delegate.SMBServerDelegate;
+import com.smbtv.delegate.SMBShareDelegate;
+import com.smbtv.delegate.SMBUserDelegate;
+import com.smbtv.model.SMBShare;
+import com.smbtv.model.SMBUser;
 import com.smbtv.ui.components.MenuAction;
 import com.smbtv.ui.components.MenuItem;
 import com.smbtv.ui.components.MenuItemPresenter;
@@ -50,6 +52,30 @@ public class MainFragmentUIBuilder {
         }
 
         HeaderItem header = new HeaderItem(cpt++, getLabel(R.string.share));
+
+        return new ListRow(header, rowAdapter);
+    }
+
+    public ListRow buildUsers() {
+
+        Log.d(TAG, "buildUsers");
+
+        ArrayObjectAdapter rowAdapter = new ArrayObjectAdapter(new MenuItemPresenter());
+
+        rowAdapter.add(new MenuItem(MenuAction.AddUser, getLabel(R.string.add), R.drawable.ic_add));
+
+        final SMBUserDelegate userDeleg = new SMBUserDelegate();
+        List<SMBUser> users = userDeleg.findAll();
+
+        for (SMBUser user : users) {
+            MenuItem menuItem = new MenuItem();
+            menuItem.setAction(MenuAction.User);
+            menuItem.setTitle(user.getLogin());
+            menuItem.setIcon(R.drawable.ic_user);
+            menuItem.setElement(user);
+            rowAdapter.add(menuItem);
+        }
+        HeaderItem header = new HeaderItem(cpt++, getLabel(R.string.users_title));
 
         return new ListRow(header, rowAdapter);
     }

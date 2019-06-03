@@ -10,7 +10,10 @@ import com.nononsenseapps.filepicker.FilePickerActivity;
 import com.smbtv.R;
 import com.smbtv.delegate.SMBServerDelegate;
 import com.smbtv.model.SMBShare;
+import com.smbtv.model.SMBUser;
 import com.smbtv.model.ServerInfo;
+import com.smbtv.ui.activity.AddUserActivity;
+import com.smbtv.ui.activity.EditUserActivity;
 import com.smbtv.ui.activity.SettingsActivity;
 import com.smbtv.ui.activity.ShareActivity;
 import com.smbtv.ui.components.MenuItem;
@@ -24,6 +27,7 @@ public class MainFragmentEventsHandler {
 
     public static final int ADD_SHARE_RESULT = 0;
     public static final int EDIT_SHARE_RESULT = 1;
+    public static final int EDIT_USER_RESULT = 2;
 
     private MainFragment mParent;
     private SMBServerDelegate mSmbService;
@@ -98,6 +102,26 @@ public class MainFragmentEventsHandler {
         intent.putExtra(ShareActivity.ID_SHARE, share.getId());
 
         mParent.startActivityForResult(intent, EDIT_SHARE_RESULT);
+    }
+
+    public void onAddUserButtonClick() {
+
+        Log.d(TAG, "onAddUserButtonClick");
+
+        Intent intent = new Intent(mParent.getActivity(), AddUserActivity.class);
+        mParent.startActivityForResult(intent, EDIT_USER_RESULT);
+    }
+
+    public void onUserButtonClick(MenuItem menuItem) {
+
+        Log.d(TAG, "onUserButtonClick");
+
+        SMBUser user = (SMBUser) menuItem.getElement();
+
+        Intent intent = new Intent(mParent.getActivity(), EditUserActivity.class);
+        intent.putExtra(ShareActivity.ID_SHARE, user.getId());
+
+        mParent.startActivityForResult(intent, EDIT_USER_RESULT);
     }
 
     private String getLabel(int key) {

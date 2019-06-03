@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<queries>
+    <query name="getAll_users">
+        SELECT id, login, password FROM users
+    </query>
+    <query name="insert_user">
+        INSERT INTO users(login, password) values ('${login}', '${password}')
+    </query>
+    <query name="getById_user">
+        SELECT id, login, password FROM users WHERE id = ${id}
+    </query>
+    <query name="get_user_shares">
+        SELECT shares.id, shares.path, shares.name, shares.access
+        FROM users
+        INNER JOIN user_share on users.id = user_share.id_user
+        INNER JOIN shares on shares.id = user_share.id_share
+        WHERE users.id = ${id}
+    </query>
+    <query name="update_user">
+        UPDATE users
+        SET login = '${login}',
+            password = '${password}'
+        WHERE id = ${id}
+    </query>
+    <query name="delete_user">
+        DELETE FROM users WHERE id = ${id}
+    </query>
+</queries>

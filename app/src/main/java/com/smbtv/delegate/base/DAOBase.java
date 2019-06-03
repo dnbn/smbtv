@@ -4,14 +4,18 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.smbtv.model.SMBShare;
+import com.smbtv.model.SMBUser;
+
 import org.apache.commons.lang3.text.StrSubstitutor;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public abstract class DAOBase {
 
-    protected final static int VERSION = 6;
+    protected final static int VERSION = 7;
     protected final static String NAME = "database.db";
 
     private SQLiteDatabase mDb = null;

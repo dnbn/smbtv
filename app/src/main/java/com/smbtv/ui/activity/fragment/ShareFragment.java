@@ -8,15 +8,20 @@ import android.support.v17.leanback.app.GuidedStepFragment;
 import android.support.v17.leanback.widget.GuidanceStylist;
 import android.support.v17.leanback.widget.GuidedAction;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.smbtv.R;
 import com.smbtv.delegate.SMBServerDelegate;
 import com.smbtv.delegate.SMBShareDelegate;
+import com.smbtv.delegate.SMBUserDelegate;
 import com.smbtv.model.SMBShare;
+import com.smbtv.model.SMBUser;
 import com.smbtv.ui.activity.tools.GuidedActionBuilder;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShareFragment extends GuidedStepFragment {
@@ -26,9 +31,13 @@ public class ShareFragment extends GuidedStepFragment {
     private final int ACTION_NAME = 0;
     private final int ACTION_REMOVE = 1;
     private final int ACTION_CONTINUE = 2;
+    private final int ACTION_USER = 3;
 
     private final SMBServerDelegate mSmbService;
     private final SMBShareDelegate mShareDelegate;
+    private final SMBUserDelegate mSMBUserDelegate;
+
+    private SMBUser mUser;
     private SMBShare mShare;
     private String editedName;
 
@@ -36,6 +45,7 @@ public class ShareFragment extends GuidedStepFragment {
 
         mSmbService = SMBServerDelegate.getInstance();
         mShareDelegate = new SMBShareDelegate();
+        mSMBUserDelegate = new SMBUserDelegate();
     }
 
     public void defineShare(int idShare) {
@@ -59,7 +69,31 @@ public class ShareFragment extends GuidedStepFragment {
         Log.d(TAG, "onCreateActions");
 
         actions.add(GuidedActionBuilder.editText(ACTION_NAME, getString(R.string.share_name), mShare.getName()));
+        addUsers(actions);
         actions.add(GuidedActionBuilder.text(ACTION_REMOVE, getString(R.string.share_remove), ""));
+    }
+
+    private void addUsers(@NonNull List<GuidedAction> actions) {
+
+        final List<SMBUser> usrs = mShareDelegate.findUsers(mShare);
+        if (usrs.size() > 0) {
+            mUser = usrs.get(0);
+        }
+
+        List<GuidedAction> selectionActions = new ArrayList<>();
+        final List<SMBUser> users = mSMBUserDelegate.findAll();
+        selectionActions.add(GuidedActionBuilder.checkedSubAction(-1, getString(R.string.share_public), null, mUser == null));
+        for (SMBUser user : users) {
+            boolean checked = false;
+            if (mUser != null && mUser.getId() == user.getId()) {
+                checked = true;
+            }
+            selectionActions.add(GuidedActionBuilder.checkedSubAction(user.getId(), user.getLogin(), null, checked));
+        }
+
+        final String desc = mUser == null ? getString(R.string.share_public) : mUser.getLogin();
+
+        actions.add(GuidedActionBuilder.dropDownAction(ACTION_USER, getString(R.string.share_user), desc, selectionActions));
     }
 
     @Override
@@ -94,6 +128,28 @@ public class ShareFragment extends GuidedStepFragment {
             getActivity().setResult(Activity.RESULT_OK);
             getActivity().finish();
         }
+    }
+
+    @Override
+    public boolean onSubGuidedActionClicked(GuidedAction action) {
+
+        final long idAction = action.getId();
+        if (idAction > 0) {
+            mUser = mSMBUserDelegate.findById((int) idAction);
+        } else {
+            mUser = null;
+        }
+
+
+        findActionById(ACTION_USER).setDescription("test");
+        findActionById(ACTION_NAME).setDescription("toto");
+
+        getActionItemView(0).postInvalidate();
+        getActionItemView(1).postInvalidate();
+        getActionItemView(0).invalidate();;
+        getActionItemView(1).invalidate();
+
+        return true;
     }
 
     @Override

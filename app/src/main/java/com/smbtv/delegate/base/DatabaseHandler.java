@@ -29,6 +29,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(strucQueries.get("create_config"));
         db.execSQL(configQueries.get("init_config"));
         db.execSQL(strucQueries.get("create_shares"));
+        db.execSQL(strucQueries.get("create_users"));
+        db.execSQL(strucQueries.get("create_user_share"));
     }
 
     @Override
@@ -37,7 +39,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Log.d(TAG, "onUpgrade");
 
         db.execSQL(strucQueries.get("drop_config"));
+        db.execSQL(strucQueries.get("drop_user_share"));
+        db.execSQL(strucQueries.get("drop_users"));
         db.execSQL(strucQueries.get("drop_shares"));
+
         onCreate(db);
     }
 

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">smbtv</string>
+    <string name="add">Ajouter</string>
+    <string name="configure">Configurer</string>
+    <string name="error_service_unbounded">Le service n\'a pas pu être démarré</string>
+    <string name="server">Serveur</string>
+    <string name="server_active">Serveur déjà actif</string>
+    <string name="server_shutdown">Serveur éteint</string>
+    <string name="server_error">Serveur en erreur</string>
+    <string name="server_started">Serveur démarré : smb://%1$s:%2$d/</string>
+    <string name="settings">Paramètres</string>
+    <string name="settings_configuration_changes">Configuration modifiée</string>
+    <string name="settings_datagramport">Port datagramme NetBIOS</string>
+    <string name="settings_desc">Configuration de l\'application</string>
+    <string name="settings_domain">Domaine</string>
+    <string name="settings_hostname">Nom d\'hôte</string>
+    <string name="settings_numberformat">Format de nombre incorrect</string>
+    <string name="settings_restart_server">Le serveur doit redémarrer pour prendre en compte ces changements</string>
+    <string name="settings_serverport">Port NetBIOS</string>
+    <string name="settings_sessionport">Port session NetBIOS</string>
+    <string name="settings_sharename">Nom du partage</string>
+    <string name="settings_smbport">Port service de partage</string>
+    <string name="settings_title">Paramètres</string>
+    <string name="settings_validate">Continuer</string>
+    <string name="settins_restart_ok">Redémarrer</string>
+    <string name="settins_restart_skip">Ignorer</string>
+    <string name="share">Partages</string>
+    <string name="share_name">Nom</string>
+    <string name="share_remove">Supprimer</string>
+    <string name="share_title">Partage</string>
+    <string name="start">Démarrer</string>
+    <string name="stop">Arrêter</string>
+    <string name="users_title">Utilisateurs</string>
+    <string name="users_desc">Création d\'un nouvel utilisateur</string>
+    <string name="users_login">Login</string>
+    <string name="users_password">Mot de passe</string>
+    <string name="users_exists">Ce login est déjà utilisé</string>
+    <string name="users_mandatory_fields">Le login et le mot de passe sont obligatoires</string>
+    <string name="users_create_desc">Création d\'un nouvel utilisateur</string>
+    <string name="users_edit_desc">Modification de l\'utilisateur</string>
+    <string name="user_shares_count">partage(s)</string>
+    <string name="users_delete">Supprimer</string>
+    <string name="share_public">Partage publique</string>
+</resources>

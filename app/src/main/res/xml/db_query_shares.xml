@@ -19,4 +19,11 @@
                 access  = ${access}
         WHERE id = ${id}
     </query>
+    <query name="get_shares_user">
+        SELECT users.id, users.login, users.password
+        FROM users
+        INNER JOIN user_share on users.id = user_share.id_user
+        INNER JOIN shares on shares.id = user_share.id_share
+        WHERE shares.id = ${id}
+    </query>
 </queries>

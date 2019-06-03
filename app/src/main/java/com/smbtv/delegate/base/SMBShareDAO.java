@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.smbtv.R;
 import com.smbtv.model.SMBShare;
+import com.smbtv.model.SMBUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -114,5 +115,30 @@ public class SMBShareDAO extends DAOBase {
 
             db.execSQL(query);
         }
+    }
+
+    public List<SMBUser> findUsers(SMBShare share) {
+
+        Log.d(TAG, "findAll");
+
+        List<SMBUser> users = new ArrayList<>();
+
+        try (DBWrapper db = instanceDB()) {
+
+            db.addBinding("id", Integer.toString(share.getId()));
+
+            String query = queries.get("get_shares_user");
+            Cursor c = db.rawQuery(query);
+
+            while (c.moveToNext()) {
+                SMBUser user = new SMBUser();
+                user.setId(c.getInt(0));
+                user.setLogin(c.getString(1));
+                user.setPassword(c.getString(2));
+                users.add(user);
+            }
+        }
+
+        return users;
     }
 }

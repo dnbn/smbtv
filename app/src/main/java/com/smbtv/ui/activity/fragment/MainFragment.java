@@ -39,9 +39,10 @@ public class MainFragment extends BrowseFragment {
 
     private ArrayObjectAdapter mRowsAdapter;
     private ListRow mItemShares;
+    private ListRow mItemUsers;
     private ListRow mItemServer;
 
-    public enum UIAction {INIT, UPDATE_SHARES, UPDATE_SERVER}
+    public enum UIAction {INIT, UPDATE_SHARES, UPDATE_SERVER, UPDATE_USERS}
 
     public ServiceConnection mConnection = new ServiceConnection() {
 
@@ -105,9 +106,11 @@ public class MainFragment extends BrowseFragment {
             setSearchAffordanceColor(getResources().getColor(R.color.search_opaque));
 
             mItemShares = uiB.buildShares();
+            mItemUsers = uiB.buildUsers();
             mItemServer = uiB.buildServerConfiguration();
 
             mRowsAdapter.add(mItemShares);
+            mRowsAdapter.add(mItemUsers);
             mRowsAdapter.add(mItemServer);
 
             setAdapter(mRowsAdapter);
@@ -115,7 +118,12 @@ public class MainFragment extends BrowseFragment {
         } else if (action == UIAction.UPDATE_SERVER) {
 
             mItemServer = uiB.buildServerConfiguration();
-            mRowsAdapter.replace(1, mItemServer);
+            mRowsAdapter.replace(2, mItemServer);
+
+        } else if (action == UIAction.UPDATE_USERS) {
+
+            mItemUsers = uiB.buildUsers();
+            mRowsAdapter.replace(1, mItemUsers);
 
         } else if (action == UIAction.UPDATE_SHARES) {
 
@@ -151,6 +159,9 @@ public class MainFragment extends BrowseFragment {
         } else if (requestCode == MainFragmentEventsHandler.EDIT_SHARE_RESULT && resultCode == Activity.RESULT_OK) {
 
             setupUIElements(UIAction.UPDATE_SHARES);
+        } else if (requestCode == MainFragmentEventsHandler.EDIT_USER_RESULT && resultCode == Activity.RESULT_OK) {
+
+            setupUIElements(UIAction.UPDATE_USERS);
         }
     }
 
@@ -183,6 +194,12 @@ public class MainFragment extends BrowseFragment {
                         break;
                     case Share:
                         maeh.onShareButtonClick(menuItem);
+                        break;
+                    case AddUser:
+                        maeh.onAddUserButtonClick();
+                        break;
+                    case User:
+                        maeh.onUserButtonClick(menuItem);
                         break;
                 }
             }
